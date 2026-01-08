@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kadir — Assignment & Drawing Help</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f9faf8;
+      --bg-gradient: linear-gradient(180deg, #f9faf8 0%, #f1f5f9 100%);
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+
+      --accent: #4f46e5;
+      --accent-soft: #eef2ff;
+
+      --border: #e5e7eb;
+      --radius: 16px;
+
+      --shadow-soft: 0 8px 20px rgba(0,0,0,0.05);
+      --shadow-hover: 0 16px 40px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, var(--accent), #6366f1);
+      color: #fff;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(79,70,229,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 35px rgba(79,70,229,0.35);
+    }
+
+    /* HERO */
+    #hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    #hero p {
+      margin: 18px auto 34px;
+      font-size: 1.05rem;
+    }
+
+    /* BACKGROUND MOVING IMAGES */
+    .bg-visuals {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg-visuals img {
+      position: absolute;
+      width: 260px;
+      opacity: 0.08;
+      filter: blur(1px);
+      animation: float 45s linear infinite;
+    }
+
+    .bg-visuals img:nth-child(1) {
+      top: 15%;
+      left: -30%;
+      animation-delay: 0s;
+    }
+
+    .bg-visuals img:nth-child(2) {
+      top: 50%;
+      left: -35%;
+      animation-delay: 10s;
+    }
+
+    .bg-visuals img:nth-child(3) {
+      top: 75%;
+      left: -25%;
+      animation-delay: 20s;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateX(0) translateY(0);
+      }
+      to {
+        transform: translateX(160vw) translateY(-40px);
+      }
+    }
+
+    /* keep hero content above background */
+    #hero > *:not(.bg-visuals) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* GRID & CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 26px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* NOTICE */
+    .notice {
+      background: linear-gradient(135deg, var(--accent-soft), #f8fafc);
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      color: #374151;
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* FORM */
+    form {
+      max-width: 620px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section id="hero" class="container">
+
+  <!-- moving background images -->
+  <div class="bg-visuals">
+    <img src="img/drawing1.jpg" alt="">
+    <img src="img/drawing2.jpg" alt="">
+    <img src="img/drawing3.jpg" alt="">
+  </div>
+
+  <h1>Assignment & Drawing Help by Kadir</h1>
+  <p>
+    Helping polytechnic and engineering students with clean drawing sheets,
+    project documentation, and well-presented assignments — delivered on time.
+  </p>
+  <a href="https://wa.me/91XXXXXXXXXX" class="btn">Message on WhatsApp</a>
+</section>
+
+<!-- SERVICES -->
+<section class="container">
+  <h2>What I Help With</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>📐 Engineering Drawings</h3>
+      <p>Manual or CAD drawings with clean layout and dimensions.</p>
+    </div>
+    <div class="card">
+      <h3>📄 Assignments</h3>
+      <p>Formatting, rewriting, and neat presentation.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Project Support</h3>
+      <p>Drafting, documentation, and submission-ready files.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="container">
+  <h2>How It Works</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Share Details</h3>
+      <p>Send task details and deadline on WhatsApp.</p>
+    </div>
+    <div class="card">
+      <h3>2. Confirm Price</h3>
+      <p>Price and delivery time confirmed before starting.</p>
+    </div>
+    <div class="card">
+      <h3>3. Receive Work</h3>
+      <p>Get clean, submission-ready files.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="container">
+  <div class="notice">
+    ⚠️ Academic assistance only. No grade guarantees. Final submission responsibility remains with the student.
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="container">
+  <h2>Request Help</h2>
+  <form>
+    <label>Your Name</label>
+    <input type="text" required>
+
+    <label>WhatsApp Number</label>
+    <input type="tel" required>
+
+    <label>Department / Subject</label>
+    <input type="text" required>
+
+    <label>Describe Your Task</label>
+    <textarea rows="4" required></textarea>
+
+    <label>Deadline</label>
+    <input type="date" required>
+
+    <div class="notice">
+      Standard delivery is 3+ days. Urgent work may cost more.
+    </div>
+
+    <br>
+    <button class="btn" style="width:100%">Submit Request</button>
+  </form>
+</section>
+
+<footer>
+  © Kadir — Student Assignment & Drawing Assistance
+</footer>
+
+</body>
+</html>
+
